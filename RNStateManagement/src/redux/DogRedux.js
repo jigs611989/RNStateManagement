@@ -7,8 +7,6 @@ const { Types, Creators } = createActions({
     requestDogFailure: null
 })
 
-console.log('Dog Redux: ', { Types, Creators })
-
 export const DogTypes = Types;
 export default Creators;
 
@@ -21,18 +19,15 @@ export const INITIAL_STATE = {
 };
 
 const requestDogHandler = (state, action) => {
-    console.log('requestDogHandler: ', {state, action})
     return { loading: true, url: '', error: false}
 }
 
 const requestDogSuccessHandler = (state, {data}) => {
-    console.log('requestDogSuccessHandler: ', {state, data})
     const {message} = data
     return { loading: false, url: message, error: false}
 }
 
 const requestDogFailedHandler = (state) => {
-    console.log('requestDogSuccessHandler: ')
     return { loading: false, url: '', error: true}
 }
 

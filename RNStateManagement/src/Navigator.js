@@ -6,6 +6,7 @@ import LocalStateExample from './containers/LocalStateExample'
 import ReduxExample from './containers/ReduxExample'
 import ReduxThunkExample from './containers/ReduxThunkExample'
 import SagaExample from './containers/SagaExample'
+import MobxExample from './containers/MobxExample'
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -19,6 +20,7 @@ function Navigator() {
                 <Stack.Screen name="Redux" component={ReduxExample} />
                 <Stack.Screen name="Redux Thunk" component={ReduxThunkExample} />
                 <Stack.Screen name="Redux Saga" component={SagaExample} />
+                <Stack.Screen name="Mobx" component={MobxExample} />
             </Stack.Navigator>
         </NavigationContainer>
     )

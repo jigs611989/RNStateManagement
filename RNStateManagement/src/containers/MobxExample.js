@@ -11,21 +11,15 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import { Provider } from 'react-redux';
-import DogRedux from '../components/DogRedux';
-import createStore from '../redux';
+import DogsMobx from '../components/DogMobx';
+import listStore from '../mobx/dogStore';
 
-const ReduxExample = () => {
-
-  const { store } = createStore()
-
-  return (
-    <Provider store={store}>
+const MobxExample = () => {
+    return (
         <View style={styles.containerView}>
-            <DogRedux />
+            <DogsMobx store={listStore}/>
         </View>
-    </Provider>
-  )
+    )
 };
 
 const styles = StyleSheet.create({
@@ -34,4 +28,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ReduxExample;
+export default MobxExample;

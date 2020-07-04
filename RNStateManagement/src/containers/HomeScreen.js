@@ -9,7 +9,7 @@ function HomeScreen({navigation}) {
         <Button title='Redux' onPress={() => navigation.navigate('Redux')} />
         <Button title='Redux Thunk' onPress={() => navigation.navigate('Redux Thunk')} />
         <Button title='Redux Saga' onPress={() => navigation.navigate('Redux Saga')} />
-        <Button title='Mobx' onPress={() => Alert.alert('TO DO')} />
+        <Button title='Mobx' onPress={() => navigation.navigate('Mobx')} />
       </View>
     );
 }
