@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './containers/HomeScreen'
 import LocalStateExample from './containers/LocalStateExample'
+import ReduxExample from './containers/ReduxExample'
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -13,6 +14,7 @@ function Navigator() {
             <Stack.Navigator>
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Local State" component={LocalStateExample} />
+                <Stack.Screen name="Redux" component={ReduxExample} />
             </Stack.Navigator>
         </NavigationContainer>
     )
