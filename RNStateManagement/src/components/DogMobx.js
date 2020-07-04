@@ -1,28 +1,25 @@
 
 import React from 'react'
-import { ActivityIndicator, Image, Text, TouchableOpacity, View } from 'react-native'
-import { useDispatch, useSelector } from 'react-redux'
-import DogCreator from '../redux/DogRedux'
+import {View, TouchableOpacity, Text, Image, ActivityIndicator} from 'react-native'
 import styles from './Styles/DogsStyle'
+import {useObserver} from 'mobx-react'
 
-const DogRedux = (props) => {
+const DogsMobx = (props) => {
     
-    const dog = useSelector(state => state)
-    const dispatch = useDispatch()
-    const {url, error, loading} = dog
+    const {url, error, loading} = props.store.dog
 
-    const fetchDog = (dispatch) => {
-        dispatch(DogCreator.requestDog())
-            return fetch('https://dog.ceo/api/breeds/image/random')
+    const fetchDog = () => {
+        props.store.updateDog('', true, false)
+        fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
-            .then(data => dispatch(DogCreator.requestDogSuccess(data)))
-            .catch(err => dispatch(DogCreator.requestDogFailure()))
+            .then(data => props.store.updateDog(data.message, false, false))
+            .catch(err => props.store.updateDog('', false, true))
     }
 
-    return (
+    return useObserver(() => (
         <View style={styles.container}>
             <TouchableOpacity 
-                onPress={() => fetchDog(dispatch)}
+                onPress={fetchDog}
                 style={styles.buttonView}
             >
                 <Text>
@@ -40,7 +37,7 @@ const DogRedux = (props) => {
                 null
             }
             {
-                url ? 
+                props.store.dog.url ? 
                     <Image 
                         style={styles.imageView}
                         source={{uri: url}}
@@ -49,7 +46,7 @@ const DogRedux = (props) => {
                 null
             }
         </View>
-    )
+    ))
 }
 
-export default DogRedux
+export default DogsMobx
