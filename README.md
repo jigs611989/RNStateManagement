@@ -1,4 +1,7 @@
 # React Native State Management
+
+There are many options available but you might not need any, Please read Application State Management with React by Kent C. dodds (https://kentcdodds.com/blog/application-state-management-with-react)
+
 ## Redux, Redux-Thunk, Redux-Saga, Mobx Example
 
 Purpose of this repo is to learn basic state management library implementing the same example so that we can understand the difference. 
@@ -33,7 +36,10 @@ react-native run-android
 ```
 
 ## TODO
-* Add GraphQL Example
+* Add [Recoil](https://recoiljs.org/docs/introduction/getting-started) Example
+* Add [Jotai](https://github.com/pmndrs/jotai) Example
+* Add [XState](https://xstate.js.org/docs/packages/xstate-react/) Example
+* Add [GraphQL](https://www.apollographql.com/docs/react/integrations/react-native/) Example
 
 ## Author
 Jignesh, jigs.patelit@gmail.com
